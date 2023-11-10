@@ -2,3 +2,4 @@ static/api/node_modules
 static/api/yarn.lock
 geetest
 __pycache__
+log
