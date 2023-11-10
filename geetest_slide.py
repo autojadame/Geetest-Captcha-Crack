@@ -294,6 +294,7 @@ class GeetestSlide(JiyanTrack):
             logger.debug(f"生成加密参数：\nw1 -> {w1}\n")
             # 2、获取s，c。s用于生成w2，由于滑动验证，w2可以直接置空
             config_info = self.get_s_c_info(gt, challenge, w1)
+            print(config_info)
             s = config_info['data']['s']
             c = config_info['data']['c']
             # 第二步 验证码缺口识别
