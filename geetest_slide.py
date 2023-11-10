@@ -285,6 +285,8 @@ class GeetestSlide(JiyanTrack):
         return new_track_list
 
     def main(self,gt,challenge):
+        print(gt)
+        print(challenge)
         try:
             # 第一步 获取验证码图片信息
             # 1、获取w1参数
