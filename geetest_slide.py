@@ -132,7 +132,7 @@ class GeetestSlide(JiyanTrack):
         params = {
             "gt": gt,
             "challenge": challenge,
-            "lang": "zh-cn",
+            "lang": "en",
             "pt": 0,
             "client_type": "web",
             "w": w1,
@@ -160,7 +160,7 @@ class GeetestSlide(JiyanTrack):
             params = {
                 "gt": gt,
                 "challenge": challenge,
-                "lang": "zh-cn",
+                "lang": "en",
                 "pt": 0,
                 "client_type": "web",
                 # 本次介绍的内容是滑动验证，fullpage发起的无感验证的请求里面加密的w参数随便填，w2值可置空, 留作扩展。
@@ -187,7 +187,7 @@ class GeetestSlide(JiyanTrack):
                 "type": "slide3",
                 "gt": gt,
                 "challenge": challenge,
-                "lang": "zh-cn",
+                "lang": "en",
                 "https": "true",
                 "protocol": "https://",
                 "offline": "false",
@@ -252,7 +252,7 @@ class GeetestSlide(JiyanTrack):
             params = {
                 "gt": gt,
                 "challenge": challenge,
-                "lang": "zh-cn",
+                "lang": "en",
                 "$_BCw": 0,
                 "client_type": "web",
                 "w": w3,
@@ -284,10 +284,9 @@ class GeetestSlide(JiyanTrack):
         new_track_list = get_slide_track(distance)
         return new_track_list
 
-    def main(self):
+    def main(self,gt,challenge):
         try:
             # 第一步 获取验证码图片信息
-            gt, challenge = self.get_gt_challenge()
             # 1、获取w1参数
             w1 = self.get_w1(gt, challenge)
             logger.debug(f"生成加密参数：\nw1 -> {w1}\n")
@@ -305,9 +304,10 @@ class GeetestSlide(JiyanTrack):
             # 4、加密轨迹
             w3 = self.get_w3(c, s_new, gt_new, challenge_new, slide_track)
             # 5、提交验证
-            self.get_validate(gt_new, challenge_new, w3)
+            return self.get_validate(gt_new, challenge_new, w3)
         except Exception:
             logger.error(traceback.format_exc())
+            return None
 
 
 def test_func():
