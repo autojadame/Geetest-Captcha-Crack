@@ -7,3 +7,79 @@
 2022-12-30 20:14:59.235 | SUCCESS  | __main__:get_validate:265 - 验证通过 -> (200, {'success': 1, 'message': 'success', 'validate': 'e477e7f81b2db79dfffd7531a3726ac2', 'score': '1'})
 2022-12-30 20:15:00.907 | SUCCESS  | __main__:get_validate:265 - 验证通过 -> (200, {'success': 1, 'message': 'success', 'validate': '3c74856c70cab1db8cd4c8b5e6fae1c8', 'score': '3'})
 2022-12-30 20:15:02.525 | SUCCESS  | __main__:get_validate:265 - 验证通过 -> (200, {'success': 1, 'message': 'success', 'validate': 'f03e7c135478d104cdc3cf0f736d2249', 'score': '2'})
+2023-11-10 22:05:08.622 | ERROR    | geetest_slide:main:311 - Traceback (most recent call last):
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/site-packages/urllib3/connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/site-packages/urllib3/connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/http/client.py", line 1276, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/http/client.py", line 1322, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/http/client.py", line 1271, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/http/client.py", line 1031, in _send_output
+    self.send(msg)
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/http/client.py", line 969, in send
+    self.connect()
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7fb63db484f0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=3001): Max retries exceeded with url: /api_fullpage/get_w1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fb63db484f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/clickfarm/Geetest-Captcha-Crack/geetest_slide.py", line 293, in main
+    w1 = self.get_w1(gt, challenge)
+  File "/home/clickfarm/Geetest-Captcha-Crack/geetest_slide.py", line 123, in get_w1
+    res_api = self.session.post(url=self.api_fullpage_1, data=api_payload).json()
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/site-packages/requests/sessions.py", line 635, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=3001): Max retries exceeded with url: /api_fullpage/get_w1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fb63db484f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2023-11-10 22:08:08.257 | ERROR    | geetest_slide:get_s_c_info:147 - 参数解析失败 -> {"status": "error", "error": "old challenge", "user_error": "Error", "error_code": "error_02"}
+2023-11-10 22:08:08.259 | ERROR    | geetest_slide:main:311 - Traceback (most recent call last):
+  File "/home/clickfarm/Geetest-Captcha-Crack/geetest_slide.py", line 296, in main
+    config_info = self.get_s_c_info(gt, challenge, w1)
+  File "/home/clickfarm/Geetest-Captcha-Crack/geetest_slide.py", line 148, in get_s_c_info
+    raise e
+  File "/home/clickfarm/Geetest-Captcha-Crack/geetest_slide.py", line 143, in get_s_c_info
+    response_dict = json.loads(response_dict)
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/home/clickfarm/.pyenv/versions/3.10.0/lib/python3.10/json/decoder.py", line 340, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 9 (char 8)
+
