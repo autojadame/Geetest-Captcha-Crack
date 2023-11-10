@@ -1,1 +1,1 @@
-/home/clickfarm/detector_python/bin/python3 ./main.py 19988
+/home/clickfarm/Geetest-Captcha-Crack/geetest/bin/python3 ./main.py 19988
