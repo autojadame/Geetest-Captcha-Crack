@@ -21,7 +21,7 @@ class S(BaseHTTPRequestHandler):
             self._set_response()
             self.wfile.write(json.dumps(detected).encode())
 
-def run(server_class=HTTPServer, handler_class=S, port=8080):
+def run(server_class=HTTPServer, handler_class=S, port=9089):
     logging.basicConfig(level=logging.INFO)
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
